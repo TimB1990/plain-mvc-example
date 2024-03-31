@@ -2,12 +2,6 @@
 
 class Home extends Controller
 {
-
-    // public function __construct()
-    // {
-    //     $this->user = $this->model('User');
-    // }
-
     public function index($name = '')
     {
         $this->view('home/index', ['name' => 'Anybode']);
