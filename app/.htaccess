@@ -1,1 +1,2 @@
+# Options -Indexes in an .htaccess file disables the automatic directory listing feature in Apache. It prevents users from seeing the contents of directories that don't have an index file (like index.html). This enhances security by hiding directory structures from public view.
 Options -Indexes

@@ -1,9 +1,17 @@
+# Disables the MultiViews feature, which allows content negotiation based on the Accept HTTP header
 Options -MultiViews
+
+# Enables the rewrite engine for this directory and its subdirectories.
 RewriteEngine On
 
+# Sets the base URL path for rewriting. This directive specifies the base URL path relative to the document root for the subsequent rewrite rule
 RewriteBase /projects/mvc/public
 
+#This condition checks if the requested filename is not a directory (!-d). If the condition is met (i.e., the requested URL does not map to an existing directory), the subsequent rewrite rule will be applied.
 RewriteCond %{REQUEST_FILENAME} !-d
+
+#This condition checks if the requested filename is not a regular file (!-f). If the condition is met (i.e., the requested URL does not map to an existing file), the subsequent rewrite rule will be applied.
 RewriteCond %{REQUEST_FILENAME} !-f
 
+# This rewrite rule is applied if both of the preceding conditions are met. It captures the requested URL path ((.+)) and passes it to index.php as a query parameter named url. The [QSA] flag appends any existing query string to the rewritten URL, and the [L] flag indicates that this is the last rule to be applied if it matches.
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
