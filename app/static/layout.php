@@ -1,15 +1,21 @@
-<?php
-$currentView = $view;
-?>
 <link rel="stylesheet" href="../public/css/app.css">
-<div>
+<div class="container">
     <header>
-        <h1>TEST</h1>
+        <h1>My application</h1>
     </header>
 
-    <?php
-    require_once '../app/views/' . $view . '.php';
-    ?>
+    <nav>
+        <ul>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Products</a></li>
+        </ul>
+    </nav>
+
+    <div id="content" slot="content">
+        <?php
+        require_once '../app/views/' . $view . '.php';
+        ?>
+    </div>
 
     <footer>
         <h3>© 2024</h3>

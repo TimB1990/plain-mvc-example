@@ -1,5 +1,65 @@
 html {
-    background-color: black;
-    color: white;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: grey;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    padding: 5px 15px;
+    line-height: 1.5;
+}
+
+nav ul li:hover {
+    background-color: darkslategrey;
+    cursor: pointer;
+}
+
+nav ul li a {
+    text-decoration: none;
+    all: unset;
+}
+
+#content {
+    padding: 1rem 1rem 0;
+    flex: 1;
+}
+
+footer {
+    padding: 1rem;
+}
+
+footer h3 {
+    margin: 0;
 }
