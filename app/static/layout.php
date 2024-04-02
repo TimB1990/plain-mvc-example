@@ -8,6 +8,7 @@
         <ul>
             <li><a href="#">Users</a></li>
             <li><a href="#">Products</a></li>
+            <li><a href="#">Settings</a></li>
         </ul>
     </nav>
 

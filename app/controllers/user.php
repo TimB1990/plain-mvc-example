@@ -1,11 +1,16 @@
 <?php
 
+use App\Models\User as UserModel;
+
 class User extends Controller
 {
-    public function create($username = '', $email = '')
+    // public function index()
+    // {
+    // }
 
+    public function create($username = '', $email = '')
     {
-        User::create([
+        UserModel::create([
             'username' => $username,
             'email' => $email
         ]);
