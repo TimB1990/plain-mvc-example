@@ -6,9 +6,9 @@
 
     <nav>
         <ul>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="users">Users</a></li>
+            <li><a href="products">Products</a></li>
+            <li><a href="settings">Settings</a></li>
         </ul>
     </nav>
 

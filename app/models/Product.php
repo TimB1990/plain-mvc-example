@@ -7,7 +7,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class User extends Eloquent
+class Product extends Eloquent
 {
-    protected $fillable = ['username', 'email', 'created_at', 'updated_at'];
+    protected $fillable = ['product_name', 'price', 'description'];
 }
