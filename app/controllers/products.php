@@ -43,6 +43,11 @@ class Products extends Controller
         // put entity to trash
     }
 
+    public function restore()
+    {
+        // restore entity from trash
+    }
+
     public function destroy()
     {
         // delete entity from database
