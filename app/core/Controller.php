@@ -2,10 +2,18 @@
 
 class Controller
 {
-    public function view($view, $data = [])
+    protected function initializeId($id)
     {
-        require_once '../app/views/' . $view . '.php';
+        if ($id === null && isset($_POST["id"])) {
+            return $_POST["id"];
+        }
+        return $id;
     }
+
+    // public function view($view, $data = [])
+    // {
+    //     require_once '../app/views/' . $view . '.php';
+    // }
 
     public function layout($view, $slot, $data = [])
     {

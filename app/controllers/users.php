@@ -2,20 +2,61 @@
 
 use App\Models\User;
 
-class Users extends Controller
+class Users extends AbstractCrudController
 {
-    public function index()
+    private $model;
+
+    public function __construct()
     {
-        $data = User::all();
-        $view = 'users/index';
-        $this->layout($view, 'content');
+        $this->model = new User();
     }
 
-    public function create($username = '', $email = '')
+    public function index($view = 'users/index')
     {
-        User::create([
-            'username' => $username,
-            'email' => $email
-        ]);
+        $products = $this->model->get();
+
+        $data = $products->map(function ($product) {
+            return collect($product->toArray())
+                ->only(['username', 'email'])
+                ->all();
+        });
+
+        $this->layout($view, 'content', $data);
+    }
+
+    public function create($view = 'users/create')
+    {
+    }
+
+    public function store()
+    {
+    }
+
+    public function edit($view = 'users/edit')
+    {
+    }
+
+    public function update($id = null)
+    {
+        $id = $this->initializeId($id);
+    }
+
+    public function trash($id = null)
+    {
+        $id = $this->initializeId($id);
+    }
+
+    public function trashed($view = 'users/trashed')
+    {
+    }
+
+    public function restore($id = null)
+    {
+        $id = $this->initializeId($id);
+    }
+
+    public function destroy($id = null)
+    {
+        $id = $this->initializeId($id);
     }
 }

@@ -2,54 +2,61 @@
 
 use App\Models\Product;
 
-class Products extends Controller
+class Products extends AbstractCrudController
 {
-    public function index()
-    {
+    private $model;
 
-        $products = Product::get();
+    public function __construct()
+    {
+        $this->model = new Product();
+    }
+
+    public function index($view = 'products/index')
+    {
+        $products = $this->model->get();
 
         $data = $products->map(function ($product) {
             return collect($product->toArray())
                 ->only(['product_name', 'description', 'price'])
                 ->all();
         });
-        $view = 'products/index';
+
         $this->layout($view, 'content', $data);
     }
 
-    public function create()
+    public function create($view = 'products/create')
     {
-        // show create view
     }
 
     public function store()
     {
-        // store entity in database
     }
 
-    public function edit()
+    public function edit($view = 'products/edit')
     {
-        // show update view
     }
 
-    public function update()
+    public function update($id = null)
     {
-        // update entity in database
+        $id = $this->initializeId($id);
     }
 
-    public function trash()
+    public function trash($id = null)
     {
-        // put entity to trash
+        $id = $this->initializeId($id);
     }
 
-    public function restore()
+    public function trashed($view = 'products/trashed')
     {
-        // restore entity from trash
     }
 
-    public function destroy()
+    public function restore($id = null)
     {
-        // delete entity from database
+        $id = $this->initializeId($id);
+    }
+
+    public function destroy($id = null)
+    {
+        $id = $this->initializeId($id);
     }
 }
