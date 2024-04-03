@@ -28,6 +28,11 @@ nav {
     background-color: grey;
 }
 
+nav.nav-secondary {
+    background-color: lightgrey;
+    font-size: 0.9rem;
+}
+
 nav ul {
     margin: 0;
     padding: 0;
@@ -41,8 +46,19 @@ nav ul li {
     line-height: 1.5;
 }
 
+nav.nav-secondary ul li:hover {
+    font-weight: normal;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+nav ul li.active, nav ul li:hover  {
+    /* background-color: darkslategrey; */
+    font-weight: bold;
+    letter-spacing: 0px;
+}
+
 nav ul li:hover {
-    background-color: darkslategrey;
     cursor: pointer;
 }
 
@@ -52,7 +68,6 @@ nav ul li a {
 }
 
 #content {
-    padding: 1rem 1rem 0;
     flex: 1;
 }
 

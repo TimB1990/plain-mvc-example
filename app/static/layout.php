@@ -6,9 +6,9 @@
 
     <nav>
         <ul>
-            <li><a href="users">Users</a></li>
-            <li><a href="products">Products</a></li>
-            <li><a href="settings">Settings</a></li>
+            <li class="<?= $view == 'users/index' ? 'active' : '' ?>"><a href="users">Users</a></li>
+            <li class="<?= $view == 'products/index' ? 'active' : '' ?>"><a href="products">Products</a></li>
+            <li class="<?= $view == 'settings/index' ? 'active' : '' ?>"><a href="settings">Settings</a></li>
         </ul>
     </nav>
 
@@ -21,4 +21,4 @@
     <footer>
         <h3>© 2024</h3>
     </footer>
-</div>
+</div>+
