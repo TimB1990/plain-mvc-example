@@ -53,7 +53,6 @@ nav.nav-secondary ul li:hover {
 }
 
 nav ul li.active, nav ul li:hover  {
-    /* background-color: darkslategrey; */
     font-weight: bold;
     letter-spacing: 0px;
 }
@@ -67,8 +66,25 @@ nav ul li a {
     all: unset;
 }
 
-#content {
+.container #content {
     flex: 1;
+}
+
+.container #content .main {
+    padding: 1rem;
+    border: 2px solid green;
+}
+
+#content div.main table.data {
+    width: 100%;
+}
+
+#content div.main table.data tr td {
+    padding: 0.5rem;
+}
+
+#content div.main table.data tr td:nth-last-child(1) {
+    text-align: right;
 }
 
 footer {
@@ -77,4 +93,69 @@ footer {
 
 footer h3 {
     margin: 0;
+}
+
+#dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+#dialog .content {
+    border: 2px solid red;
+    padding: 1rem;
+    background-color: white;
+}
+
+form textarea {
+    resize: none;
+}
+
+form table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+form table tr td {
+    width: 100%;
+    vertical-align: top;
+    padding: 1rem;
+}
+
+form table tr td:nth-child(1) {
+    width: 25%;
+}
+
+form table tr td input, 
+form table tr td textarea {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+form table tr td:has(button) {
+    padding-top: 0rem;
+    text-align: right;
+}
+
+button {
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid black;
+    border-radius: 0;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+    transition: font-weight 0.2s, background-color 0.2s; /* Smooth transition for box-shadow */
+}
+
+button:hover{
+    /* box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2); */
+    font-weight: bold;
+    background-color: whitesmoke;
 }

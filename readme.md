@@ -16,3 +16,7 @@ or adjust the root in this .htaccess file
     //     return new $model();
     // }
 ```
+
+## TODO
+
+- Make referencing category possible

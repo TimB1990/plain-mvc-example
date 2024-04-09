@@ -10,10 +10,14 @@ class Controller
         return $id;
     }
 
-    // public function view($view, $data = [])
-    // {
-    //     require_once '../app/views/' . $view . '.php';
-    // }
+    protected function initializeFields()
+    {
+        $fields = [];
+        foreach ($_POST as $key => $value) {
+            $fields[$key] = $value;
+        }
+        return $fields;
+    }
 
     public function layout($view, $slot, $data = [])
     {

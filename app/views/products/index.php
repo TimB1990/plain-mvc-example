@@ -1,13 +1,13 @@
 <div>
     <nav class="nav-secondary">
         <ul>
-            <li>Add Category</li>
-            <li>Add Single Product</li>
+            <li style="color:grey;"><a href="#">Add Category</a></li>
+            <li><a href="products/create">Add Single Product</a></li>
         </ul>
     </nav>
 
-    <div style="padding: 1rem;">
-        <table>
+    <div class="main">
+        <table class="data">
             <?php
             $data->each(function ($product) {
                 echo '<tr>';

@@ -26,10 +26,25 @@ class Products extends AbstractCrudController
 
     public function create($view = 'products/create')
     {
+        $this->layout($view, 'content', ['data' => 'test']);
     }
 
     public function store()
     {
+        if (empty($_POST)) {
+            return;
+        }
+
+        $data = $this->initializeFields();
+        $priceFieldValue = floatval($data['price']);
+        $data['price'] = $priceFieldValue;
+
+        try {
+            $this->model->create($data);
+            redirect('/products');
+        } catch (\Exception $e) {
+            echo "An error occured " . $e->getMessage();
+        }
     }
 
     public function edit($view = 'products/edit')
