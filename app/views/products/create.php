@@ -6,6 +6,22 @@
                 <td><input required name="product_name" id="product_name" type="text" placeholder="product name..."></td>
             </tr>
             <tr>
+                <td><label for="category_name">category* :</label></td>
+                <td>
+                    <select name="category_id" id="category">
+                        <!-- <option value="1">test</option>
+                        <option value="2">test 1</option>
+                        <option value="3">test 2</option>
+                        <option value="4">test 3</option> -->
+                        <?php
+                        $data->each(function ($category) {
+                            echo "<option value='cat_" . $category['id'] . "'>" . $category['category_name'] . "</option>";
+                        });
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td><label for="product_price">product price* : €</label></td>
                 <td><input required type='text' name="price" id="product_price" placeholder="0.00" pattern="\d+(\.\d{2})?" /></td>
             </tr>

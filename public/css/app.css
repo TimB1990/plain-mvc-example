@@ -135,6 +135,11 @@ form table tr td textarea {
     padding: 0.5rem;
 }
 
+form table tr td select {
+    width: 100%;
+    padding: 0.5rem;
+}
+
 form table tr td:has(button) {
     padding-top: 0rem;
     text-align: right;

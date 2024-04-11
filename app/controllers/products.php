@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Product;
+use App\Models\Category;
 
 class Products extends AbstractCrudController
 {
@@ -29,7 +30,13 @@ class Products extends AbstractCrudController
 
     public function create($view = 'products/create')
     {
-        $this->layout($view, 'content', ['data' => 'test']);
+        $categoryData = Category::all()
+            ->map(function ($category) {
+                return collect($category->toArray())
+                    ->only(['id', 'category_name'])
+                    ->all();
+            });
+        $this->layout($view, 'content', $categoryData);
     }
 
     public function store()
@@ -39,6 +46,15 @@ class Products extends AbstractCrudController
         }
 
         $data = $this->initializeFields();
+
+        // category_id contains prefix 'cat' before '_', the id to reference from the 'categories' table is the underscore's postfix
+        // this is going to be basic convention of HTML 'name' attributes to have them unique if needed
+        // so we do some mutations of the data
+        // TODO: We eventually want to have this functionality in Controller.php.
+
+        $foreignKeyValue = intval(explode('cat_', trim($data['category_id']))[1]);
+        $data['category_id'] = $foreignKeyValue;
+
         $priceFieldValue = floatval($data['price']);
         $data['price'] = $priceFieldValue;
 

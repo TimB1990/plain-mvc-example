@@ -14,7 +14,7 @@
                 echo '<td>' . $product['product_name'] . '</td>';
                 echo '<td>' . $product['category_name'] . '</td>';
                 echo '<td>' . $product['description'] . '</td>';
-                echo '<td>' . '€ ' .  $product['price'] . '</td>';
+                echo '<td>' . '€ ' .  number_format($product['price'], 2, ',', '.') . '</td>';
                 echo '</tr>';
             });
             ?>

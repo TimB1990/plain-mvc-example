@@ -21,6 +21,7 @@ class Controller
 
     public function layout($view, $slot, $data = [])
     {
+        // make sure to always call $data to get the data sent with this method to the view.
         require_once '../app/static/layout.php';
     }
 }

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Product extends Eloquent
 {
     // properties
-    protected $fillable = ['product_name', 'price', 'description'];
+    protected $fillable = ['category_id', 'product_name', 'price', 'description'];
 
     // relations
     public function category(): BelongsTo
