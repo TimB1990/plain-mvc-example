@@ -12,6 +12,7 @@
             $data->each(function ($product) {
                 echo '<tr>';
                 echo '<td>' . $product['product_name'] . '</td>';
+                echo '<td>' . $product['category_name'] . '</td>';
                 echo '<td>' . $product['description'] . '</td>';
                 echo '<td>' . '€ ' .  $product['price'] . '</td>';
                 echo '</tr>';

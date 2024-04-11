@@ -6,16 +6,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Product extends Eloquent
+class Category extends Eloquent
 {
     // properties
-    protected $fillable = ['product_name', 'price', 'description'];
+    protected $fillable = ['category_name', 'description'];
 
     // relations
-    public function category(): BelongsTo
+    public function products(): HasMany
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Product::class);
     }
 }

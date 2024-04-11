@@ -13,13 +13,16 @@ class Products extends AbstractCrudController
 
     public function index($view = 'products/index')
     {
-        $products = $this->model->get();
+        $products = $this->model->with('category')->get();
 
+        // also add category name to data that is sent, since relation defined
         $data = $products->map(function ($product) {
             return collect($product->toArray())
                 ->only(['product_name', 'description', 'price'])
+                ->merge(['category_name' => $product->category->category_name])
                 ->all();
         });
+
 
         $this->layout($view, 'content', $data);
     }
