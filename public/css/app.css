@@ -72,15 +72,23 @@ nav ul li a {
 
 .container #content .main {
     padding: 1rem;
-    border: 2px solid green;
 }
 
 #content div.main table.data {
     width: 100%;
 }
 
-#content div.main table.data tr td {
+#content div.main table.data tr td,
+#content div.main table.data tr th {
     padding: 0.5rem;
+}
+
+#content div.main table.data tr th {
+    cursor: pointer;
+}
+
+#content div.main table.data tr td.indent {
+    padding-left: 1.5rem;
 }
 
 #content div.main table.data tr td:nth-last-child(1) {

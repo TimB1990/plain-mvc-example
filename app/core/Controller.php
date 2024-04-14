@@ -19,7 +19,7 @@ class Controller
         return $fields;
     }
 
-    public function layout($view, $slot, $data = [])
+    public function layout($view, $slot, $data = [], $template)
     {
         // make sure to always call $data to get the data sent with this method to the view.
         require_once '../app/static/layout.php';
