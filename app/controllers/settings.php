@@ -2,9 +2,9 @@
 
 class Settings extends Controller
 {
-    public function index($name = '')
+    public function index()
     {
         $view = 'settings/index';
-        $this->layout($view, 'content');
+        $this->layout($view, 'content', [], 'default');
     }
 }

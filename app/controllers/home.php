@@ -2,9 +2,9 @@
 
 class Home extends Controller
 {
-    public function index($name = '')
+    public function index()
     {
         $view = 'home/index';
-        $this->layout($view, 'content', ['name' => 'Admin']);
+        $this->layout($view, 'content', [], 'default');
     }
 }

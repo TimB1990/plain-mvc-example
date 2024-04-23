@@ -5,14 +5,15 @@ $productLabels = [
     'price'
 ];
 
+echo "<table class='data'>";
 $data->each(function ($category, $index) use ($productLabels) {
     $categoryId = 'category_' . $index; // Generate unique ID for each category
     echo '<thead id="' . $categoryId . '">
         <tr>
-            <th colspan=\'3\' style=\'text-align:left;\' onclick="toggleBody(\'' . $categoryId . '\')">' . $category['category_name'] . '<span id=\'' . $categoryId . '_toggle' . '\' style=\'float:right;font-size:20px;\'>-</span></th>
+            <th colspan=\'3\' style=\'text-align:left;\' onclick="toggleBody(\'' . $categoryId . '\')">' . $category['category_name'] . '<span id=\'' . $categoryId . '_toggle' . '\' style=\'float:right;font-size:20px;\'>+</span></th>
         </tr>
     </thead>';
-    echo '<tbody id="body_' . $categoryId . '">';
+    echo '<tbody style=\'display:none;\' id="body_' . $categoryId . '">';
     $category['products']->each(function ($prod) use ($productLabels) {
         echo '<tr>';
         foreach ($productLabels as $label) {
@@ -22,10 +23,12 @@ $data->each(function ($category, $index) use ($productLabels) {
     });
     echo '</tbody>';
 });
+echo "</table>";
+?>
 
-echo '<script>
+<script>
     function toggleBody(categoryId) {
-        var tbody = document.getElementById("body_" + categoryId);
+        let tbody = document.getElementById("body_" + categoryId);
         if (tbody.style.display === "none" || tbody.style.display === "") {
             tbody.style.display = "table-row-group";
             document.getElementById(categoryId + "_toggle").innerText = "-"
@@ -34,4 +37,4 @@ echo '<script>
             document.getElementById(categoryId + "_toggle").innerText = "+"
         }
     }
-</script>';
+</script>

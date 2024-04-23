@@ -46,14 +46,23 @@ nav ul li {
     line-height: 1.5;
 }
 
-nav.nav-secondary ul li:hover {
-    font-weight: normal;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+nav ul li.action {
+    padding-right: 0px;
 }
 
-nav.nav-secondary ul li a.button-link {
+nav.nav-secondary ul li:not(.action):hover {
+    font-weight: normal;
+    background-color: slategray;
+}
+
+a.button-link {
     padding: 0.5rem;
+    text-decoration: none;
+}
+
+
+a.button-link:hover, a.button-link.active {
+    background-color: slategray;
 }
 
 nav ul li.active, nav ul li:hover  {

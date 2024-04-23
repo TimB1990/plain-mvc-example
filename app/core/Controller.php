@@ -14,6 +14,7 @@ class Controller
     {
         $fields = [];
         foreach ($_POST as $key => $value) {
+
             $fields[$key] = $value;
         }
         return $fields;

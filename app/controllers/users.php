@@ -21,7 +21,7 @@ class Users extends AbstractCrudController
                 ->all();
         });
 
-        $this->layout($view, 'content', $data);
+        $this->layout($view, 'content', $data, 'default');
     }
 
     public function create($view = 'users/create')
