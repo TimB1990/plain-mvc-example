@@ -21,16 +21,20 @@ class Categories extends AbstractCrudController
         $categories = $this->model->get();
         $data = $categories->map(function ($category) {
             return collect($category->toArray())
-                ->only(['category_name', 'description'])
+                ->only(['id', 'category_name', 'description'])
+                ->merge(['product_count' => $category->products()->count()])
+                ->merge(['actions' 
+                    => $this->initializeUIactionsExistingModel('cid', $category->id, 'categories', true)
+                ])
                 ->all();
         });
 
         $this->layout($view, 'content', $data, $this->template);
     }
 
-    public function create($view = 'categories/create')
+    public function create($view = 'categories/create_edit')
     {
-        $this->layout($view, 'content', null, 'default');
+        $this->layout($view, 'content', ['task' => 'store'], 'default');
     }
 
     public function store()
@@ -49,13 +53,33 @@ class Categories extends AbstractCrudController
         }
     }
 
-    public function edit($view = 'categories/edit')
+    public function edit($view = 'categories/create_edit')
     {
+        if (isset($_GET['cid']) && intval($_GET['cid'])) {
+            $category = $this->model->find($_GET['cid']);
+            if (!isset($category)) {
+                $errorData = ['error' => ['msg' => 'Category not found!']];
+                $this->layout($view, 'content', $errorData);
+            } else {
+                $this->layout($view, 'content', [
+                    'category' => $category,
+                    'task' => 'update'
+                ]);
+            }
+        }
     }
 
     public function update($id = null)
     {
+        if (empty($_POST)) return;
         $id = $this->initializeId($id);
+        $data = $this->initializeFields();
+        try {
+            $this->model->find(intval($id))->update($data);
+            redirect('/categories');
+        } catch (\Exception $e) {
+            echo "An error occured " . $e->getMessage();
+        }
     }
 
     public function trash($id = null)

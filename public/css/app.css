@@ -88,16 +88,21 @@ nav ul li a {
 }
 
 #content div.main table.data {
+    border-collapse: collapse;
     width: 100%;
 }
 
-#content div.main table.data tr td,
-#content div.main table.data tr th {
+
+#content div.main table.data tr td {
+    vertical-align:text-top;
     padding: 0.5rem;
 }
 
 #content div.main table.data tr th {
-    cursor: pointer;
+    padding: 0.5rem;
+    border: 2px solid blue;
+    text-align: left;
+    cursor: default;
 }
 
 #content div.main table.data tr td.indent {

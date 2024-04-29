@@ -10,7 +10,7 @@ $data->each(function ($category, $index) use ($productLabels) {
     $categoryId = 'category_' . $index; // Generate unique ID for each category
     echo '<thead id="' . $categoryId . '">
         <tr>
-            <th colspan=\'3\' style=\'text-align:left;\' onclick="toggleBody(\'' . $categoryId . '\')">' . $category['category_name'] . '<span id=\'' . $categoryId . '_toggle' . '\' style=\'float:right;font-size:20px;\'>+</span></th>
+            <th style="cursor:pointer;" colspan=\'3\' style=\'text-align:left;\' onclick="toggleBody(\'' . $categoryId . '\')">' . $category['category_name'] . '<span id=\'' . $categoryId . '_toggle' . '\' style=\'float:right;font-size:20px;\'>+</span></th>
         </tr>
     </thead>';
     echo '<tbody style=\'display:none;\' id="body_' . $categoryId . '">';

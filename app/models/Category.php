@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Eloquent
 {
+
     // properties
     protected $fillable = ['category_name', 'description'];
 

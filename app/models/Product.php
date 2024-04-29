@@ -13,6 +13,10 @@ class Product extends Eloquent
     // properties
     protected $fillable = ['category_id', 'product_name', 'price', 'description'];
 
+    protected function getTableName(){
+        return (new self())->getTable();
+    }
+
     // relations
     public function category(): BelongsTo
     {
